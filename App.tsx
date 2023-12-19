@@ -2,7 +2,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SummaryScreen from "./Screens/SummaryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import Barcode from "./components/Barcode/Barcode";
-import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
+import {
+  FontAwesome5,
+  Ionicons,
+  FontAwesome,
+  Entypo,
+} from "@expo/vector-icons";
+import CalendarScreen from "./Screens/CalendarScreen";
 import DietScreen from "./Screens/DietScreen";
 
 const Tab = createBottomTabNavigator();
@@ -14,9 +20,9 @@ export default function App() {
         screenOptions={{
           tabBarActiveTintColor: "#05666C",
           tabBarShowLabel: true,
-          headerTitleAlign: "center",
+          headerShown: false,
           tabBarStyle: { height: 65, flex: 0, padding: 5 },
-          tabBarLabelStyle: {marginBottom: 10, fontSize: 12},
+          tabBarLabelStyle: { marginBottom: 10, fontSize: 12 },
         }}
       >
         <Tab.Screen
@@ -34,6 +40,16 @@ export default function App() {
           options={{
             tabBarIcon: ({ color }) => (
               <Ionicons name="fast-food" size={24} color={color} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Calendar"
+          component={CalendarScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Entypo name="calendar" size={24} color={color} />
             ),
           }}
         />

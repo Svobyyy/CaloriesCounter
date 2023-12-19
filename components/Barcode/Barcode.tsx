@@ -1,6 +1,6 @@
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { useState } from "react";
-import { Alert, StyleSheet, Button } from "react-native";
+import { Alert, StyleSheet, Button, Vibration } from "react-native";
 
 const Barcode = () => {
   const [scanned, setScanned] = useState(false);
@@ -16,6 +16,7 @@ const Barcode = () => {
       `Bar code with type ${type} and data ${data} has been scanned!`
     );
     console.log(data)
+    Vibration.vibrate()
   };
 
   return (

@@ -1,10 +1,8 @@
-import { Text, View } from "react-native"
+import { Text } from "react-native"
 
 const DietScreen = () => {
     return(
-        <View>
-            <Text> Diet </Text>
-        </View>
+        <Text>Diet</Text>
     )
 }
 

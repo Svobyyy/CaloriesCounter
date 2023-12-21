@@ -1,28 +1,49 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
-import { View, Text } from "react-native";
+import { Text, StyleSheet, Pressable } from "react-native";
+import CalendarModal from "./CalendarModal";
+
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const Calendar = () => {
-  const {date}  = useSelector((state: any) => state.date);
+  const { date } = useSelector((state: any) => state.date);
 
+  const [modalVisible, setModalVisible] = useState(false);
 
-  if(date)
-  {
-    console.log(date, typeof date)
-    console.log(date.date())
-    console.log(date.day())
-    console.log(date.month() + 1)
-    // udělat pomocí tohodle kalendář jako mají kalorické
-  }
-
+  const setVisible = () => {
+    setModalVisible((visible) => !visible);
+  };
 
   return (
-    <>
-      <View>
-        <Text></Text>
-      </View>
-    </>
+    <Pressable
+      style={styles.calendar}
+      onPressIn={() => {
+        setVisible();
+      }}
+    >
+      <Text style={styles.calendarText}>{`${
+        days[date.day()]
+      }, ${date.date()}.${date.month() + 1}`}</Text>
+      <CalendarModal
+        visibility={modalVisible}
+        setVisibility={setVisible}
+      ></CalendarModal>
+    </Pressable>
   );
 };
 
-export default Calendar
+const styles = StyleSheet.create({
+  calendar: {
+    backgroundColor: "#05666C",
+    paddingVertical: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  calendarText: {
+    fontWeight: "700",
+    color: "white",
+  },
+});
+
+export default Calendar;

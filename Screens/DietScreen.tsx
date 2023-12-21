@@ -1,12 +1,12 @@
 import { Text } from "react-native"
 
-import { test } from "../slices/dateSlice"
+import Diet from "../components/Diet/Diet"
 
 const DietScreen = () => {
 
 
-    return(
-        <Text>Diet</Text>
+    return (
+        <Diet/>
     )
 }
 

@@ -11,12 +11,13 @@ const dateSlice = createSlice({
     name: 'date',
     initialState,
     reducers: {
-        test: (state) => {
-            console.log(state)
+        changeDate: (state, action) => {
+
+            state.date = action.payload
         }
     },
   })
   
-  export const {test} = dateSlice.actions
+  export const {changeDate} = dateSlice.actions
   
   export default dateSlice.reducer

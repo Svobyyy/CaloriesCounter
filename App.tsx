@@ -7,9 +7,7 @@ import {
   FontAwesome5,
   Ionicons,
   FontAwesome,
-  Entypo,
 } from "@expo/vector-icons";
-import CalendarScreen from "./Screens/CalendarScreen";
 import DietScreen from "./Screens/DietScreen";
 import { store } from "./store/store";
 import Barcode from "./components/Barcode/Barcode";
@@ -46,16 +44,6 @@ export default function App() {
             options={{
               tabBarIcon: ({ color }) => (
                 <Ionicons name="fast-food" size={24} color={color} />
-              ),
-            }}
-          />
-
-          <Tab.Screen
-            name="Calendar"
-            component={CalendarScreen}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <Entypo name="calendar" size={24} color={color} />
               ),
             }}
           />

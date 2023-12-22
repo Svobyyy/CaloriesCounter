@@ -1,54 +1,89 @@
-import { SectionList, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-// _id
-//
-// date
-// 2023-12-19T00:00:00.000+00:00
+import {
+  Pressable,
+  SectionList,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+} from "react-native";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-// breakfast
-// Array (empty)
 
-// lunch
-// Array (empty)
+const Diet = ({navigation} : any) => {
+  const [products, setProducts] = useState([]) as any;
+    const [loading, setLoading] = useState(true);
+    const { date } = useSelector((state: any) => state.date);
+  
+    const fetchData = async () => {
+      try {
+        const result = await fetch(
+          `http://192.168.0.10:3005/date/${date.format("YYYY-MM-DD")}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await result.json();
+        setProducts([
+          { title: "Breakfast", data: data.breakfast },
+          { title: "Lunch", data: data.lunch },
+          { title: "Dinner", data: data.dinner },
+          { title: "Snacks", data: data.snacks },
+        ]);
+  
+        setLoading(false)
+      } catch (e) {
+        console.log("error");
+      }
+    };
+  
+    useEffect(() => {
+        fetchData();
+    }, [date]);
+  
 
-// dinner
-// Array (empty)
-
-// snacks
-// Array (empty)
-
-const DUMMY = {
-  _id: "65810cfb0d4726587c5d1285",
-  date: "2023-12-19T00:00:00.000+00:00",
-  breakfast: ["test", "test2"],
-  dinner: ["test", "test2"],
-  lunch: ["test", "test2"],
+    return ( 
+          
+              <>
+                {!loading && (
+                  <SectionList
+                    sections={products}
+                    keyExtractor={(item, index) => item.name + index}
+                    renderItem={({ item }) => <Text>{item.name}</Text>}
+                    renderSectionHeader={({ section: { title } }) => (
+                      <Pressable
+                        onPressIn={() => navigation.navigate("Find", {section: title})}
+                        style={styles.header}
+                      >
+                        <Text>{title}</Text>
+                      </Pressable>
+                    )}
+                  ></SectionList>
+                )}
+                {loading && (
+                  <View style={styles.loading}>
+                    <ActivityIndicator size="large" color="#00ff00" />
+                  </View>
+                )}
+              </>
+            );
 };
 
-const TEST = [
-  {
-    title: "Breakfast",
-    data: DUMMY.breakfast,
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "green",
+    paddingVertical: 10,
+    margin: 5,
+    gap: 5,
   },
-  {
-    title: "Lunch",
-    data: DUMMY.lunch,
+  loading: {
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
   },
-  {
-    title: "Dinner",
-    data: DUMMY.dinner,
-  },
-];
-
-const Diet = () => {
-  return (
-    <SectionList
-      sections={TEST}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => <Text>{item}</Text>}
-      renderSectionHeader={({ section: { title } }) => <Text>{title}</Text>}
-    ></SectionList>
-  );
-};
+});
 
 export default Diet;

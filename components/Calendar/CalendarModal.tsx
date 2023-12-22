@@ -1,11 +1,11 @@
 import { Text, StyleSheet, Modal, Pressable } from "react-native";
 import DateTimePicker from "react-native-ui-datepicker";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeDate } from "../../slices/dateSlice";
 import dayjs from "dayjs";
 
 const CalendarModal = ({ visibility, setVisibility }: any) => {
+  
 
   const dispatch = useDispatch()
   const { date } = useSelector((state: any) => state.date);

@@ -8,13 +8,16 @@ import {
 } from "react-native";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
-
-const Diet = ({navigation} : any) => {
+const Diet = () => {
+  const navigation = useNavigation() as any;
   const [products, setProducts] = useState([]) as any;
-    const [loading, setLoading] = useState(true);
-    const { date } = useSelector((state: any) => state.date);
-  
+  const [loading, setLoading] = useState(true);
+  const { date } = useSelector((state: any) => state.date);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await fetch(
@@ -33,51 +36,73 @@ const Diet = ({navigation} : any) => {
           { title: "Dinner", data: data.dinner },
           { title: "Snacks", data: data.snacks },
         ]);
-  
-        setLoading(false)
+
+        setLoading(false);
       } catch (e) {
         console.log("error");
       }
     };
-  
-    useEffect(() => {
-        fetchData();
-    }, [date]);
-  
 
-    return ( 
-          
-              <>
-                {!loading && (
-                  <SectionList
-                    sections={products}
-                    keyExtractor={(item, index) => item.name + index}
-                    renderItem={({ item }) => <Text>{item.name}</Text>}
-                    renderSectionHeader={({ section: { title } }) => (
-                      <Pressable
-                        onPressIn={() => navigation.navigate("Find", {section: title})}
-                        style={styles.header}
-                      >
-                        <Text>{title}</Text>
-                      </Pressable>
-                    )}
-                  ></SectionList>
-                )}
-                {loading && (
-                  <View style={styles.loading}>
-                    <ActivityIndicator size="large" color="#00ff00" />
-                  </View>
-                )}
-              </>
-            );
+    fetchData();
+  }, [date]);
+
+  return (
+    <>
+      {!loading && (
+        <SectionList
+          sections={products}
+          keyExtractor={(item, index) => item.name + index}
+          renderItem={({ item }) => (
+            <View style={styles.products}>
+              <Text>{item.name}</Text>
+            </View>
+          )}
+          renderSectionHeader={({ section: { title } }) => (
+            <Pressable
+              onPressIn={() => navigation.navigate("Find", { section: title })}
+              style={styles.header}
+            >
+              <Text style={styles.headerTitle}>{title}</Text>
+              <AntDesign
+                name="pluscircle"
+                size={24}
+                color="white"
+                style={styles.headerIcon}
+              />
+            </Pressable>
+          )}
+        ></SectionList>
+      )}
+      {loading && (
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" color="#05666C" />
+        </View>
+      )}
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "green",
+    backgroundColor: "#05666C",
     paddingVertical: 10,
     margin: 5,
-    gap: 5,
+    marginTop: 8,
+    borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  headerTitle: {
+    color: "white",
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: "500",
+  },
+  headerIcon: {
+    marginRight: 10,
+  },
+  products: {
+    marginHorizontal: 15,
   },
   loading: {
     flex: 1,

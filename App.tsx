@@ -2,15 +2,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SummaryScreen from "./Screens/SummaryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
-import { StatusBar } from "expo-status-bar";
 
 import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
-import DietScreen from "./Screens/DietScreen";
 import { store } from "./store/store";
-import Barcode from "./components/Barcode/Barcode";
-import Calendar from "./components/Calendar/Calendar";
 import Bar from "./components/StatusBar/Bar";
 import DietRoute from "./routes/DietRoute";
+import BarCodeScreen from "./Screens/BarCodeScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +16,6 @@ export default function App() {
     <>
       <Bar></Bar>
       <Provider store={store}>
-        <Calendar></Calendar>
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={{
@@ -51,7 +47,7 @@ export default function App() {
 
             <Tab.Screen
               name="Products"
-              component={Barcode}
+              component={BarCodeScreen}
               options={{
                 tabBarIcon: ({ color }) => (
                   <FontAwesome name="search" size={24} color={color} />

@@ -1,12 +1,14 @@
-import { View, StatusBar, FlatList, Text, Vibration, Button, ActivityIndicator } from "react-native";
-import { useState } from "react";
+import {
+  View,
+} from "react-native";
+import Calendar from "../components/Calendar/Calendar";
 
 const SummaryScreen = () => {
-
   return (
-    <View>
-      
-    </View>
+    <>
+      <Calendar></Calendar>
+      <View></View>
+    </>
   );
 };
 

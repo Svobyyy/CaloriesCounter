@@ -1,9 +1,13 @@
 import { TextInput, StyleSheet, Pressable } from "react-native";
 import { useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { changeFind } from "../../../slices/findSlice";
 
 const FindInput = ({ setLoading }: any) => {
   const [text, setText] = useState<string>("");
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (text === "") {
@@ -22,7 +26,7 @@ const FindInput = ({ setLoading }: any) => {
           }
         );
         const data = await result.json();
-        console.log(data);
+        dispatch(changeFind(data));
 
         setLoading(false);
       } catch (e) {
@@ -50,7 +54,13 @@ const FindInput = ({ setLoading }: any) => {
         cursorColor={"#05666C"}
         inputMode="search"
       ></TextInput>
-      <Pressable style={styles.headerHeight} onPressIn={() => {setText("")}}>
+      <Pressable
+        style={styles.headerHeight}
+        onPressIn={() => {
+          setText("")
+          dispatch(changeFind([]))
+        }}
+      >
         <AntDesign name="close" size={28} color="black" />
       </Pressable>
     </>
@@ -69,7 +79,7 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
 });
 
 export default FindInput;

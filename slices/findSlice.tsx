@@ -1,22 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+export type Product = {
+    __v: number,
+    id: string,
+    carbohydrates: number,
+    fat: number,
+    fiber: number,
+    name: string
+    protein: number
+}
 
-const initialState = {
-    find: []
+type initialType = {
+    find: Product[]
+}
+
+const initialState: initialType = {
+    find: [] 
 }
 
 
-const dateSlice = createSlice({
+const findSlice = createSlice({
     name: 'find',
     initialState,
     reducers: {
-        changeDate: (state, action) => {
+        changeFind: (state, action) => {
 
             state.find = action.payload
         }
     },
   })
   
-  export const {changeDate} = dateSlice.actions
+  export const {changeFind} = findSlice.actions
   
-  export default dateSlice.reducer
+  export default findSlice.reducer

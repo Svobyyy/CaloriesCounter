@@ -5,6 +5,7 @@ import {
 } from "react-native";
 import FindHeader from "./FindHeader/FindHeader";
 import { useState } from "react";
+import FindProducts from "./FindProducts/FindProducts";
 
 const Find = ({ route, navigation }: any) => {
   const { section } = route.params;
@@ -19,6 +20,11 @@ const Find = ({ route, navigation }: any) => {
           <ActivityIndicator size="large" color="#05666C" />
         </View>
       )}
+      {
+        !loading && (
+          <FindProducts></FindProducts>
+        )
+      }
     </>
   );
 };

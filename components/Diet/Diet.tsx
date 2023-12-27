@@ -36,7 +36,6 @@ const Diet = () => {
           { title: "Dinner", data: data.dinner },
           { title: "Snacks", data: data.snacks },
         ]);
-
         setLoading(false);
       } catch (e) {
         console.log("error");

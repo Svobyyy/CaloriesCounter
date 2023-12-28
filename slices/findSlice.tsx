@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export type Product = {
     __v: number,
-    id: string,
+    _id: string,
     carbohydrates: number,
     fat: number,
     fiber: number,

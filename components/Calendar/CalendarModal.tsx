@@ -3,12 +3,18 @@ import DateTimePicker from "react-native-ui-datepicker";
 import { useSelector, useDispatch } from "react-redux";
 import { changeDate } from "../../slices/dateSlice";
 import dayjs from "dayjs";
+import { RootState } from "../../store/store";
 
-const CalendarModal = ({ visibility, setVisibility }: any) => {
+type props = {
+  visibility: boolean,
+  setVisibility: Function
+}
+
+const CalendarModal = ({ visibility, setVisibility }: props) => {
   
 
   const dispatch = useDispatch()
-  const { date } = useSelector((state: any) => state.date);
+  const { date } = useSelector((state: RootState) => state.date);
 
 
 

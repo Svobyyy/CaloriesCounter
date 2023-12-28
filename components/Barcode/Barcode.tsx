@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Alert, StyleSheet, Button, Vibration } from "react-native";
 
 const Barcode = () => {
-  const [scanned, setScanned] = useState(false);
+  const [scanned, setScanned] = useState<boolean>(false);
 
   const getBarCodeScannerPermissions = async () => {
     const { status } = await BarCodeScanner.requestPermissionsAsync();

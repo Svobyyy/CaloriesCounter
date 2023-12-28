@@ -1,18 +1,17 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
-
 import { Text, StyleSheet, Pressable} from "react-native";
 import CalendarModal from "./CalendarModal";
+import { RootState } from "../../store/store";
 
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const Calendar = () => {
-  const { date } = useSelector((state: any) => state.date);
-
-  const [modalVisible, setModalVisible] = useState(false);
+  const { date } = useSelector((state: RootState) => state.date);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   const setVisible = () => {
-    setModalVisible((visible) => !visible);
+    return setModalVisible((visible) => !visible);
   };
 
   return (

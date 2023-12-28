@@ -10,12 +10,14 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import { Product } from "../../slices/findSlice";
+import { RootState } from "../../store/store";
 
 const Diet = () => {
   const navigation = useNavigation() as any;
   const [products, setProducts] = useState([]) as any;
-  const [loading, setLoading] = useState(true);
-  const { date } = useSelector((state: any) => state.date);
+  const [loading, setLoading] = useState<Boolean>(true);
+  const { date } = useSelector((state: RootState) => state.date);
 
   useEffect(() => {
     const fetchData = async () => {

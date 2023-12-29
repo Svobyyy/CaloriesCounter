@@ -1,4 +1,4 @@
-import { Ionicons, AntDesign } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { View, StyleSheet, TextInput, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import FindInput from "../FindInput/FindInput";
@@ -27,7 +27,7 @@ const FindHeader = ({setLoading}: any) => {
 const styles = StyleSheet.create({
   header: {
     borderBottomColor: "gray",
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     flexDirection: "row",
     alignItems: "center",
     gap: 12,

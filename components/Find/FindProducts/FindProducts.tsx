@@ -1,7 +1,14 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+} from "react-native";
 import { useSelector } from "react-redux";
 import { Product } from "../../../slices/findSlice";
 import { RootState } from "../../../store/store";
+import { useNavigation } from "@react-navigation/native";
 
 const FindProduct = ({ protein, carbohydrates, fiber, fat, name }: Product) => {
   const calories: number =
@@ -19,11 +26,21 @@ const FindProduct = ({ protein, carbohydrates, fiber, fat, name }: Product) => {
 };
 
 const FindProducts = () => {
-  const { find } = useSelector((state: RootState) => state.find);
+  const navigation = useNavigation() as any;
+
+  const { find} = useSelector((state: RootState) => state.find);
   return (
     <FlatList
       data={find}
-      renderItem={({ item }) => FindProduct(item)}
+      renderItem={({ item }) => (
+        <Pressable
+          onPressIn={() => {
+            navigation.navigate("AddToDate", {product: item});
+          }}
+        >
+          {FindProduct(item)}
+        </Pressable>
+      )}
       keyExtractor={(item) => item["_id"]}
     ></FlatList>
   );

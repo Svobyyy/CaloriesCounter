@@ -7,7 +7,6 @@ const Barcode = () => {
 
   const getBarCodeScannerPermissions = async () => {
     const { status } = await BarCodeScanner.requestPermissionsAsync();
-    console.log(status);
   };
 
   const handleBarCodeScanned = ({ type, data }: any) => {
@@ -15,7 +14,6 @@ const Barcode = () => {
     Alert.alert(
       `Bar code with type ${type} and data ${data} has been scanned!`
     );
-    console.log(data)
     Vibration.vibrate()
   };
 

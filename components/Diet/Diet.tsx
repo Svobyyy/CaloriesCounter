@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
-import { Product } from "../../slices/findSlice";
 import { RootState } from "../../store/store";
 
 const Diet = () => {
@@ -40,7 +39,7 @@ const Diet = () => {
         ]);
         setLoading(false);
       } catch (e) {
-        console.log("error");
+        console.log("error", e);
       }
     };
 

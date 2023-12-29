@@ -17,6 +17,7 @@ const dateSlice = createSlice({
         changeDate: (state, action: PayloadAction<Dayjs>) => {
 
             state.date = action.payload
+            console.log(state.date)
         }
     },
   })

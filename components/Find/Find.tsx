@@ -1,14 +1,16 @@
-import {
-  StyleSheet,
-  View,
-  ActivityIndicator,
-} from "react-native";
+import { StyleSheet, View, ActivityIndicator } from "react-native";
 import FindHeader from "./FindHeader/FindHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FindProducts from "./FindProducts/FindProducts";
+import { useDispatch } from "react-redux";
+import { changeSection } from "../../slices/findSlice";
 
-const Find = ({ route, navigation }: any) => {
-  const { section } = route.params;
+const Find = ({ route }: any) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const { section } = route.params;
+    dispatch(changeSection(section));
+  }, []);
 
   const [loading, setLoading] = useState(false);
 
@@ -20,11 +22,7 @@ const Find = ({ route, navigation }: any) => {
           <ActivityIndicator size="large" color="#05666C" />
         </View>
       )}
-      {
-        !loading && (
-          <FindProducts></FindProducts>
-        )
-      }
+      {!loading && <FindProducts></FindProducts>}
     </>
   );
 };
@@ -41,7 +39,7 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-  }
+  },
 });
 
 export default Find;

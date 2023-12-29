@@ -11,6 +11,7 @@ const FindInput = ({ setLoading }: any) => {
 
   useEffect(() => {
     if (text === "") {
+      dispatch(changeFind([]));
       return setLoading(false);
     }
     setLoading(true);

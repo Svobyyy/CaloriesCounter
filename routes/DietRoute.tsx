@@ -19,12 +19,6 @@ const DietRoute = () => {
       <Stack.Screen
         name="AddToDate"
         component={AddToDate}
-        options={{
-          headerShown: true,
-          title: "Write down",
-          headerBackTitleStyle: {fontSize: 80}
-          
-        }}
       />
     </Stack.Navigator>
   );

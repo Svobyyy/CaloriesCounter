@@ -10,7 +10,7 @@ const FindInput = ({ setLoading }: any) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (text === "") {
+    if (text.trim() === "") {
       dispatch(changeFind([]));
       return setLoading(false);
     }
@@ -18,7 +18,7 @@ const FindInput = ({ setLoading }: any) => {
     const fetchData = async () => {
       try {
         const result = await fetch(
-          `http://192.168.0.10:3005/products/${text.toLowerCase()}`,
+          `http://192.168.0.10:3005/products/${text.trim().toLowerCase()}`,
           {
             method: "GET",
             headers: {

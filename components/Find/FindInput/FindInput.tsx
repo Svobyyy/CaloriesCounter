@@ -4,6 +4,24 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 import { changeFind } from "../../../slices/findSlice";
 
+
+const fetchData = async (text: string, dispatch: Function, setLoading: Function) => {
+  try {
+    const result = await fetch(
+      `http://192.168.0.10:3005/products/${text.trim().toLowerCase()}`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await result.json();
+    dispatch(changeFind(data));
+
+    setLoading(false);
+  } catch (e) {
+    console.log("error", e);
+  }
+};
+
 const FindInput = ({ setLoading }: any) => {
   const [text, setText] = useState<string>("");
 
@@ -15,28 +33,10 @@ const FindInput = ({ setLoading }: any) => {
       return setLoading(false);
     }
     setLoading(true);
-    const fetchData = async () => {
-      try {
-        const result = await fetch(
-          `http://192.168.0.10:3005/products/${text.trim().toLowerCase()}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const data = await result.json();
-        dispatch(changeFind(data));
 
-        setLoading(false);
-      } catch (e) {
-        console.log("error", e);
-      }
-    };
 
     const timer = setTimeout(() => {
-      fetchData();
+      fetchData(text, dispatch, setLoading);
       setLoading(false);
     }, 300);
 

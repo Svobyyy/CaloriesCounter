@@ -33,12 +33,12 @@ const Summary = () => {
 
 const styles = StyleSheet.create({
   caloriesBackground: {
-    backgroundColor: "rgba(5, 102, 108, 0.2)",
+    backgroundColor: "rgba(5, 102, 108, 0.12)",
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "stretch",
     padding: 20,
-    borderRadius: 20,
+    borderRadius: 10,
   },
   wrap: {
     justifyContent: "center",
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   secondText: {
     fontSize: 18,
-    color: "gray",
+    color: "#4d4d4d",
   },
 });
 

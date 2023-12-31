@@ -64,14 +64,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   caloriesBackground: {
-    backgroundColor: "rgba(5, 102, 108, 0.2)",
+    backgroundColor: "rgba(5, 102, 108, 0.12)",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
     alignSelf: "stretch",
     flex: 1,
     padding: 10,
-    borderRadius: 20,
+    borderRadius: 10,
     gap: 8
   },
   mainText: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   secondText: {
     fontSize: 16,
-    color: "gray",
+    color: "#4d4d4d",
   },
 });
 

@@ -45,7 +45,7 @@ const CalendarModal = ({ visibility, setVisibility }: props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#f2f2f2",
   },
   test: {},
 });

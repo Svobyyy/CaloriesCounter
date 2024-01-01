@@ -1,5 +1,6 @@
 import { Dayjs } from "dayjs";
 
+
 const getDateDatabase = async (
   date: Dayjs,
   setProducts: any,

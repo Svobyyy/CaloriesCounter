@@ -12,16 +12,17 @@ import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { RootState } from "../../store/store";
 import getDateDatabase from "./getDateDatebase";
+import DietProduct from "./DietProduct/DietProduct";
 
 const Diet = () => {
   const navigation = useNavigation() as any;
-  const [products, setProducts] = useState([]) as any;
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState<Boolean>(true);
   const { date } = useSelector((state: RootState) => state.date);
 
   useEffect(() => {
-    setLoading(true)
-    getDateDatabase(date, setProducts, setLoading)
+    setLoading(true);
+    getDateDatabase(date, setProducts, setLoading);
   }, [date]);
 
   return (
@@ -30,11 +31,7 @@ const Diet = () => {
         <SectionList
           sections={products}
           keyExtractor={(item, index) => item.name + index}
-          renderItem={({ item }) => (
-            <View style={styles.products}>
-              <Text>{item.name}</Text>
-            </View>
-          )}
+          renderItem={({ item, section: { title } }) => <DietProduct product={item} when={title}></DietProduct>}
           renderSectionHeader={({ section: { title } }) => (
             <Pressable
               onPressIn={() => navigation.navigate("Find", { section: title })}
@@ -78,9 +75,6 @@ const styles = StyleSheet.create({
   },
   headerIcon: {
     marginRight: 10,
-  },
-  products: {
-    marginHorizontal: 15,
   },
   loading: {
     flex: 1,

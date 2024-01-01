@@ -7,6 +7,7 @@ import Calendar from "../Calendar/Calendar";
 import AddProduct from "./AddProduct/AddProduct";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
+import sendToDatabase from "./sendToDatabase";
 
 const data = [
   { key: "1", value: "Breakfast" },
@@ -15,35 +16,12 @@ const data = [
   { key: "4", value: "Snacks" },
 ];
 
-const fetchData = async (dateId: string) => {
-  try {
-    await fetch(`http://192.168.0.10:3005/date/${dateId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        when: "lunch",
-        name: "add?",
-        protein: 20,
-        carbohydrates: 10,
-        fiber: 0,
-        fat: 2,
-        quantity: 20,
-      }),
-    });
-    console.log("fetched");
-  } catch (e) {
-    console.log("error", e);
-  }
-};
-
 const AddToDate = ({ route, navigation }: any) => {
   const { section } = useSelector((state: RootState) => state.find);
+  const { date } = useSelector((state: RootState) => state.date);
+
   const dispatch = useDispatch();
-  const [text, setText] = useState<string>("");
-
-
+  const [quantity, setQuantity] = useState<string>("1");
 
   return (
     <>
@@ -66,8 +44,13 @@ const AddToDate = ({ route, navigation }: any) => {
             backgroundColor: "#f2f2f2",
           }}
         />
-        <AddProduct product={route.params.product} />
+        <AddProduct
+          product={route.params.product}
+          setQuantity={setQuantity}
+          quantity={quantity}
+        />
       </ScrollView>
+
       <View style={styles.buttons}>
         <Pressable
           style={styles.back}
@@ -80,7 +63,13 @@ const AddToDate = ({ route, navigation }: any) => {
         <Pressable
           style={styles.add}
           onPressIn={() => {
-            fetchData("658549fa96773a3c50a7a7a1");
+            sendToDatabase(
+              date.format("YYYY-MM-DD"),
+              navigation,
+              section,
+              route.params.product,
+              parseInt(quantity)
+            );
           }}
         >
           <Ionicons name="checkmark" size={28} color="#f2f2f2" />

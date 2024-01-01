@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { RootState } from "../../store/store";
+import getDateDatabase from "./getDateDatebase";
 
 const Diet = () => {
   const navigation = useNavigation() as any;
@@ -19,31 +20,8 @@ const Diet = () => {
   const { date } = useSelector((state: RootState) => state.date);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await fetch(
-          `http://192.168.0.10:3005/date/${date.format("YYYY-MM-DD")}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const data = await result.json();
-        setProducts([
-          { title: "Breakfast", data: data.breakfast },
-          { title: "Lunch", data: data.lunch },
-          { title: "Dinner", data: data.dinner },
-          { title: "Snacks", data: data.snacks },
-        ]);
-        setLoading(false);
-      } catch (e) {
-        console.log("error", e);
-      }
-    };
-
-    fetchData();
+    setLoading(true)
+    getDateDatabase(date, setProducts, setLoading)
   }, [date]);
 
   return (

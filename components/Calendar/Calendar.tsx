@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Text, StyleSheet, Pressable} from "react-native";
+import { Text, StyleSheet, Pressable } from "react-native";
 import CalendarModal from "./CalendarModal";
 import { RootState } from "../../store/store";
 
@@ -10,17 +10,16 @@ const Calendar = () => {
   const { date } = useSelector((state: RootState) => state.date);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  const setVisible = () => {
+  const setVisibility = () => {
     return setModalVisible((visible) => !visible);
   };
 
   return (
     <>
-
       <Pressable
         style={styles.calendar}
         onPressIn={() => {
-          setVisible();
+          setVisibility();
         }}
       >
         <Text style={styles.calendarText}>{`${
@@ -28,7 +27,7 @@ const Calendar = () => {
         }, ${date.date()}.${date.month() + 1}`}</Text>
         <CalendarModal
           visibility={modalVisible}
-          setVisibility={setVisible}
+          setVisibility={setVisibility}
         ></CalendarModal>
       </Pressable>
     </>

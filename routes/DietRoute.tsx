@@ -10,7 +10,6 @@ const Stack = createNativeStackNavigator();
 const DietRoute = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Diet"
       screenOptions={{ headerShown: false, animation: "fade"}}
     >
       <Stack.Screen name="DietRoute" component={DietScreen} />

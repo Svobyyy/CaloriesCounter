@@ -1,4 +1,4 @@
-import { Text, StyleSheet, Modal, Pressable } from "react-native";
+import { Modal } from "react-native";
 import DateTimePicker from "react-native-ui-datepicker";
 import { useSelector, useDispatch } from "react-redux";
 import { changeDate } from "../../slices/dateSlice";
@@ -41,13 +41,5 @@ const CalendarModal = ({ visibility, setVisibility }: props) => {
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f2f2f2",
-  },
-  test: {},
-});
 
 export default CalendarModal;

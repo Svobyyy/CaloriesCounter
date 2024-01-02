@@ -2,13 +2,15 @@ import { Product } from "../../slices/findSlice";
 
 
 const sendToDatabase = async (
+  dispatch: any,
+  updateDispatch: any,
   date: string,
   navigation: any,
   when: string,
   product: Product,
   quantity: number,
-  oldWhen: string,
-  _id: string,
+  oldWhen?: string,
+  _id?: string,
   update?: boolean,
 
 
@@ -36,6 +38,7 @@ const sendToDatabase = async (
         id: _id
       }),
     });
+    dispatch(updateDispatch)
     navigation.navigate("DietRoute");
   } catch (e) {
     console.log("error", e);

@@ -1,10 +1,11 @@
 import { AntDesign } from "@expo/vector-icons";
 import { View, Pressable, StyleSheet, Text } from "react-native";
 import { Product, changeSection } from "../../../slices/findSlice";
-import CaloriesCounter from "../../utils/CaloriesCounter";
+import CaloriesCounter from "../../../utils/CaloriesCounter";
 import DeleteDatabase from "./DeleteDatabase";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
+import { updateProducts } from "../../../slices/productsSlice";
 
 type props = {
   product: Product & { quantity: number };
@@ -53,7 +54,7 @@ const DietProduct = ({
         </Text>
         <Pressable
           onPressIn={() => {
-            DeleteDatabase(_id, when);
+            DeleteDatabase(_id, when, dispatch, updateProducts);
           }}
         >
           <AntDesign name="close" size={24} color="black" />

@@ -6,7 +6,9 @@ const CaloriesCounter = (
   quantity: number = 100
 ): number => {
   return (
-    ((protein * 4 + carbohydrates * 4 + fiber * 2 + fat * 9) * quantity) / 100
+    Math.round(
+      (protein * 4 + carbohydrates * 4 + fiber * 2 + fat * 9) * quantity
+    ) / 100
   );
 };
 

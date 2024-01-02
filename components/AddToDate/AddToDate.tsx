@@ -8,6 +8,7 @@ import AddProduct from "./AddProduct/AddProduct";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import sendToDatabase from "./sendToDatabase";
+import { updateProducts } from "../../slices/productsSlice";
 
 const data = [
   { key: "1", value: "Breakfast" },
@@ -22,7 +23,6 @@ const AddToDate = ({ route, navigation }: any) => {
 
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState<string>("");
-
 
   return (
     <>
@@ -65,15 +65,16 @@ const AddToDate = ({ route, navigation }: any) => {
           style={styles.add}
           onPressIn={() => {
             sendToDatabase(
+              dispatch,
+              updateProducts(),
               date.format("YYYY-MM-DD"),
               navigation,
               section,
               route.params.product,
               parseInt(quantity),
               route.params.when,
-              route.params['_id'],
-              route.params.update,
-
+              route.params["_id"],
+              route.params.update
             );
           }}
         >

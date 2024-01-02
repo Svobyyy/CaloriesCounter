@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { RootState } from "../../store/store";
@@ -16,22 +16,26 @@ import DietProduct from "./DietProduct/DietProduct";
 
 const Diet = () => {
   const navigation = useNavigation() as any;
-  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState<Boolean>(true);
   const { date } = useSelector((state: RootState) => state.date);
+  const { products, updateRequired } = useSelector((state: RootState) => state.products);
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setLoading(true);
-    getDateDatabase(date, setProducts, setLoading);
-  }, [date]);
+    getDateDatabase(date, dispatch ,setLoading);
+  }, [date, updateRequired]);
 
   return (
     <>
       {!loading && (
         <SectionList
-          sections={products}
+          sections={products as any}
           keyExtractor={(item, index) => item.name + index}
-          renderItem={({ item, section: { title } }) => <DietProduct product={item} when={title}></DietProduct>}
+          renderItem={({ item, section: { title } }) => (
+            <DietProduct product={item} when={title}></DietProduct>
+          )}
           renderSectionHeader={({ section: { title } }) => (
             <Pressable
               onPressIn={() => navigation.navigate("Find", { section: title })}

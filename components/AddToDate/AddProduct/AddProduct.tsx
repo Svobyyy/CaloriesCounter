@@ -1,6 +1,6 @@
 import { Text, View, TextInput, StyleSheet } from "react-native";
 import { Product } from "../../../slices/findSlice";
-import CaloriesCounter from "../../utils/CaloriesCounter";
+import CaloriesCounter from "../../../utils/CaloriesCounter";
 
 type props = {
   product: Product;

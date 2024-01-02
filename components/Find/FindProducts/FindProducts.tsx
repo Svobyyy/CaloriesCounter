@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Product } from "../../../slices/findSlice";
 import { RootState } from "../../../store/store";
 import { useNavigation } from "@react-navigation/native";
-import CaloriesCounter from "../../utils/CaloriesCounter";
+import CaloriesCounter from "../../../utils/CaloriesCounter";
 
 const FindProduct = ({ protein, carbohydrates, fiber, fat, name }: Product) => {
   return (

@@ -1,9 +1,9 @@
 import { Dayjs } from "dayjs";
-
+import { changeProducts } from "../../slices/productsSlice";
 
 const getDateDatabase = async (
   date: Dayjs,
-  setProducts: any,
+  dispatch: any,
   setLoading: React.Dispatch<React.SetStateAction<Boolean>>
 ) => {
   try {
@@ -17,12 +17,14 @@ const getDateDatabase = async (
       }
     );
     const data = await result.json();
-    setProducts([
-      { title: "Breakfast", data: data.breakfast },
-      { title: "Lunch", data: data.lunch },
-      { title: "Dinner", data: data.dinner },
-      { title: "Snacks", data: data.snacks },
-    ]);
+    dispatch(
+      changeProducts([
+        { title: "Breakfast", data: data.breakfast },
+        { title: "Lunch", data: data.lunch },
+        { title: "Dinner", data: data.dinner },
+        { title: "Snacks", data: data.snacks },
+      ])
+    );
     setLoading(false);
   } catch (e) {
     console.log("error", e);

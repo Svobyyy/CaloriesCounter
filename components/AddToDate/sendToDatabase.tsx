@@ -6,8 +6,14 @@ const sendToDatabase = async (
   navigation: any,
   when: string,
   product: Product,
-  quantity: number
+  quantity: number,
+  oldWhen: string,
+  _id: string,
+  update?: boolean,
+
+
 ) => {
+
 
 
   const { name, protein, fat, carbohydrates, fiber } = product;
@@ -24,7 +30,10 @@ const sendToDatabase = async (
         carbohydrates,
         fiber,
         fat,
-        quantity
+        quantity,
+        update,
+        oldWhen,
+        id: _id
       }),
     });
     navigation.navigate("DietRoute");

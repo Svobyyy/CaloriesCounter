@@ -1,8 +1,10 @@
 import { AntDesign } from "@expo/vector-icons";
 import { View, Pressable, StyleSheet, Text } from "react-native";
-import { Product } from "../../../slices/findSlice";
+import { Product, changeSection } from "../../../slices/findSlice";
 import CaloriesCounter from "../../utils/CaloriesCounter";
 import DeleteDatabase from "./DeleteDatabase";
+import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
 
 type props = {
   product: Product & { quantity: number };
@@ -13,13 +15,35 @@ const DietProduct = ({
   product: { _id, carbohydrates, fat, fiber, name, protein, quantity },
   when,
 }: props) => {
+  const navigation = useNavigation() as any;
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.product}>
-      <View>
-        <Text>{name}</Text>
-        <Text>{quantity} g</Text>
-      </View>
+      <Pressable
+        onPressIn={() => {
+          navigation.navigate("AddToDate", {
+            product: {
+              _id,
+              carbohydrates,
+              fat,
+              fiber,
+              name,
+              protein,
+              quantity,
+            },
+            update: true,
+            when,
+            _id
+          });
+          dispatch(changeSection(when));
+        }}
+      >
+        <View>
+          <Text>{name}</Text>
+          <Text>{quantity} g</Text>
+        </View>
+      </Pressable>
 
       {/* <AntDesign name="infocirlceo" size={24} color="black" /> */}
 
@@ -29,7 +53,7 @@ const DietProduct = ({
         </Text>
         <Pressable
           onPressIn={() => {
-            DeleteDatabase(_id, when)
+            DeleteDatabase(_id, when);
           }}
         >
           <AntDesign name="close" size={24} color="black" />

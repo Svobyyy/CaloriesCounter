@@ -1,5 +1,5 @@
 import { changeSection } from "../../slices/findSlice";
-import { Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
+import { Pressable, StyleSheet, View, ScrollView } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
@@ -21,7 +21,8 @@ const AddToDate = ({ route, navigation }: any) => {
   const { date } = useSelector((state: RootState) => state.date);
 
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState<string>("1");
+  const [quantity, setQuantity] = useState<string>("");
+
 
   return (
     <>
@@ -68,7 +69,11 @@ const AddToDate = ({ route, navigation }: any) => {
               navigation,
               section,
               route.params.product,
-              parseInt(quantity)
+              parseInt(quantity),
+              route.params.when,
+              route.params['_id'],
+              route.params.update,
+
             );
           }}
         >

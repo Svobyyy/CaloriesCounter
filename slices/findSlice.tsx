@@ -27,11 +27,11 @@ const findSlice = createSlice({
     reducers: {
         changeFind: (state, action : PayloadAction<Product[]>) => {
             state.find = action.payload
-            console.log(state.find)
+            // console.log(state.find)
         },
         changeSection: (state, action : PayloadAction<string>) => {
             state.section = action.payload
-            console.log(state.section)
+            // console.log(state.section)
         },
     },
   })

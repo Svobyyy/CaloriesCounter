@@ -22,6 +22,7 @@ const DietProduct = ({
   return (
     <View style={styles.product}>
       <Pressable
+        style={styles.changeQuantity}
         onPressIn={() => {
           navigation.navigate("AddToDate", {
             product: {
@@ -53,6 +54,7 @@ const DietProduct = ({
           {CaloriesCounter(protein, carbohydrates, fiber, fat, quantity)} kcal
         </Text>
         <Pressable
+        style={styles.delete}
           onPressIn={() => {
             DeleteDatabase(_id, when, dispatch, updateProducts);
           }}
@@ -67,17 +69,29 @@ const DietProduct = ({
 const styles = StyleSheet.create({
   product: {
     flexDirection: "row",
-    justifyContent: "space-between",
     marginHorizontal: 15,
-    paddingVertical: 4,
-    justifyContect: "center",
     alignItems: "center",
+    margin: 0,
+    padding: 0,
+
+  },
+  changeQuantity: {
+    flex: 1,
+
+    paddingVertical: 4,
   },
   buttons: {
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+    height: "100%"
   },
+  delete: {
+    height: '100%',
+    justifyContent: "center",
+    maxHeight: "100%"
+  }
+
 });
 
 export default DietProduct;

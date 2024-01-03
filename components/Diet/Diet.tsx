@@ -31,6 +31,7 @@ const Diet = () => {
     <>
       {!loading && (
         <SectionList
+        
           sections={products as any}
           keyExtractor={(item, index) => item.name + index}
           renderItem={({ item, section: { title } }) => (

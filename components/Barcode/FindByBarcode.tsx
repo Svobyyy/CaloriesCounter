@@ -1,7 +1,4 @@
-const FindByBarcode = async (
-  barcode: number,
-  navigation: any,
-) => {
+const FindByBarcode = async (barcode: number, navigation: any) => {
   try {
     const result = await fetch(
       `http://192.168.0.10:3005/product/barcode/${barcode}`,
@@ -10,9 +7,13 @@ const FindByBarcode = async (
       }
     );
     const data = await result.json();
-    console.log(data)
-    navigation.navigate('AddToDate', {product: data})
-    return data
+
+    if (data !== null) {
+      return navigation.navigate("AddToDate", { product: data });
+    }
+    // add a product
+
+
   } catch (e) {
     console.log("error", e);
   }

@@ -5,10 +5,12 @@ type Props = {
     nameFirst: string,
     countFirst: number,
     nameSecond: string,
-    countSecond: number
+    countSecond: number,
+    valueFirst: number,
+    valueSecond: number
 }
 
-const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond} : Props) => {
+const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst, valueSecond} : Props) => {
   return (
     <View style={styles.wrap}>
       <View style={styles.caloriesBackground}>
@@ -17,7 +19,7 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond} : Props) =>
           size={80}
           thickness={7}
           showsText={true}
-          progress={0.2}
+          progress={valueFirst / (countFirst / 100) / 100}
           color={"red"}
           unfilledColor={"rgba(5, 102, 108, 0.2)"}
           borderWidth={0}
@@ -27,7 +29,7 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond} : Props) =>
 
         <View>
           <Text style={styles.mainText}>{nameFirst}</Text>
-          <Text style={styles.secondText}>/{countFirst}</Text>
+          <Text style={styles.secondText}>{valueFirst}/{countFirst}</Text>
         </View>
       </View>
       <View style={styles.caloriesBackground}>
@@ -36,7 +38,7 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond} : Props) =>
           size={80}
           thickness={7}
           showsText={true}
-          progress={0.2}
+          progress={valueSecond / (countSecond / 100) / 100}
           color={"red"}
           unfilledColor={"rgba(5, 102, 108, 0.2)"}
           borderWidth={0}
@@ -46,7 +48,7 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond} : Props) =>
 
         <View>
           <Text style={styles.mainText}>{nameSecond}</Text>
-          <Text style={styles.secondText}>/{countSecond}</Text>
+          <Text style={styles.secondText}>{valueSecond}/{countSecond}</Text>
         </View>
       </View>
     </View>

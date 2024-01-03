@@ -16,9 +16,9 @@ const Barcode = () => {
 
   const handleBarCodeScanned = async ({ type, data }: any) => {
     setScanned(true);
-    Alert.alert(
-      `Bar code with type ${type} and data ${data} has been scanned!`
-    );
+    // Alert.alert(
+    //   `Bar code with type ${type} and data ${data} has been scanned!`
+    // );
     FindByBarcode(parseInt(data), navigation)
     Vibration.vibrate()
   };

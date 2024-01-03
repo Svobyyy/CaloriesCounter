@@ -1,8 +1,14 @@
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import * as Progress from "react-native-progress";
 import SubSummary from "./SubSummary/SubSummary";
+import { useSelector } from "react-redux";
 
 const Summary = () => {
+  const {
+    nutrition: { calories, protein, fiber, fat, carbohydrates },
+  } = useSelector((state: any) => state.products);
+
+
   return (
     <ScrollView>
       <View style={styles.wrap}>
@@ -13,7 +19,7 @@ const Summary = () => {
             size={150}
             thickness={10}
             showsText={true}
-            progress={0.2}
+            progress={calories / (3000 / 100) / 100 }
             color={"red"}
             unfilledColor={"rgba(5, 102, 108, 0.2)"}
             borderWidth={0}
@@ -21,12 +27,26 @@ const Summary = () => {
             textStyle={{ color: "#05666C", fontWeight: "500" }}
           />
 
-          <Text style={styles.mainText}>1000 kcal</Text>
+          <Text style={styles.mainText}>{calories} kcal</Text>
           <Text style={styles.secondText}>goal 3000</Text>
         </View>
       </View>
-      <SubSummary nameFirst={"Protein"} countFirst={185} nameSecond={"Carbs"} countSecond={362}></SubSummary>
-      <SubSummary nameFirst={"Fats"} countFirst={83.7} nameSecond={"Fiber"} countSecond={27.5}></SubSummary>
+      <SubSummary
+        nameFirst={"Protein"}
+        countFirst={185}
+        nameSecond={"Carbs"}
+        countSecond={362}
+        valueFirst={protein}
+        valueSecond={carbohydrates}
+      ></SubSummary>
+      <SubSummary
+        nameFirst={"Fats"}
+        countFirst={83.7}
+        nameSecond={"Fiber"}
+        countSecond={27.5}
+        valueFirst={fat}
+        valueSecond={fiber}
+      ></SubSummary>
     </ScrollView>
   );
 };
@@ -49,7 +69,7 @@ const styles = StyleSheet.create({
     color: "#05666C",
     fontWeight: "500",
     fontSize: 24,
-    marginBottom: 20
+    marginBottom: 20,
   },
   mainText: {
     marginTop: 10,

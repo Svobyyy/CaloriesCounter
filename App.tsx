@@ -18,6 +18,7 @@ export default function App() {
       <Provider store={store}>
         <NavigationContainer>
           <Tab.Navigator
+            initialRouteName="Diet"
             screenOptions={{
               tabBarActiveTintColor: "#05666C",
               tabBarShowLabel: true,

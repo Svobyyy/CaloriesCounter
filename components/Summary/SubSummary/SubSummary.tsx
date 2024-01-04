@@ -20,7 +20,7 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst,
           thickness={7}
           showsText={true}
           progress={valueFirst / (countFirst / 100) / 100}
-          color={"red"}
+          color={(valueFirst / (countFirst / 100) / 100) < 0.75 ? "orange" : "green" }
           unfilledColor={"rgba(5, 102, 108, 0.2)"}
           borderWidth={0}
           borderColor={"#05666C"}
@@ -39,7 +39,7 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst,
           thickness={7}
           showsText={true}
           progress={valueSecond / (countSecond / 100) / 100}
-          color={"red"}
+          color={(valueSecond / (countSecond / 100) / 100) < 0.75 ? "orange" : "green" }
           unfilledColor={"rgba(5, 102, 108, 0.2)"}
           borderWidth={0}
           borderColor={"#05666C"}
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
     marginBottom: 20,
-    marginHorizontal: 20,
+    marginHorizontal: 10,
     flexDirection: "row",
   },
   caloriesBackground: {

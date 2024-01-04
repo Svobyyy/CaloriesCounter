@@ -20,7 +20,7 @@ const Summary = () => {
             thickness={10}
             showsText={true}
             progress={calories / (3000 / 100) / 100 }
-            color={"red"}
+            color={ (calories / (3000 / 100) / 100) < 0.75 ? "orange" : "green" }
             unfilledColor={"rgba(5, 102, 108, 0.2)"}
             borderWidth={0}
             borderColor={"#05666C"}
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
   wrap: {
     justifyContent: "center",
     alignItems: "center",
-    margin: 20,
+    marginHorizontal: 10,
+    marginVertical: 20,
   },
   headerText: {
     color: "#05666C",

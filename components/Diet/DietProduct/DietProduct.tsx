@@ -6,6 +6,8 @@ import DeleteDatabase from "./DeleteDatabase";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { updateProducts } from "../../../slices/productsSlice";
+import { useState } from "react";
+import InfoModal from "./InfoModal/InfoModal";
 
 type props = {
   product: Product & { quantity: number };
@@ -18,6 +20,7 @@ const DietProduct = ({
 }: props) => {
   const navigation = useNavigation() as any;
   const dispatch = useDispatch();
+  const [info, setInfo] = useState<boolean>(false);
 
   return (
     <View style={styles.product}>
@@ -36,7 +39,7 @@ const DietProduct = ({
             },
             update: true,
             when,
-            _id
+            _id,
           });
           dispatch(changeSection(when));
         }}
@@ -47,14 +50,28 @@ const DietProduct = ({
         </View>
       </Pressable>
 
-      {/* <AntDesign name="infocirlceo" size={24} color="black" /> */}
-
       <View style={styles.buttons}>
         <Text>
           {CaloriesCounter(protein, carbohydrates, fiber, fat, quantity)} kcal
         </Text>
+
         <Pressable
-        style={styles.delete}
+          onPressIn={() => {
+            setInfo((data) => !data);
+          }}
+        >
+          <AntDesign name="infocirlceo" size={20} color="black" />
+        </Pressable>
+
+        {info && (
+          <InfoModal
+            product={{ name, protein, carbohydrates, fat, fiber, quantity }}
+            setInfo={setInfo}
+          ></InfoModal>
+        )}
+
+        <Pressable
+          style={styles.delete}
           onPressIn={() => {
             DeleteDatabase(_id, when, dispatch, updateProducts);
           }}
@@ -73,7 +90,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 0,
     padding: 0,
-
   },
   changeQuantity: {
     flex: 1,
@@ -84,14 +100,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    height: "100%"
+    height: "100%",
   },
   delete: {
-    height: '100%',
+    height: "100%",
     justifyContent: "center",
-    maxHeight: "100%"
-  }
-
+    maxHeight: "100%",
+  },
 });
 
 export default DietProduct;

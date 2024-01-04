@@ -7,7 +7,7 @@ import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
 import { store } from "./store/store";
 import Bar from "./components/StatusBar/Bar";
 import DietRoute from "./routes/DietRoute";
-import BarCodeScreen from "./Screens/BarCodeScreen";
+import ProductsScreen from "./Screens/ProductsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -48,7 +48,7 @@ export default function App() {
 
             <Tab.Screen
               name="Products"
-              component={BarCodeScreen}
+              component={ProductsScreen}
               options={{
                 tabBarIcon: ({ color }) => (
                   <FontAwesome name="search" size={24} color={color} />

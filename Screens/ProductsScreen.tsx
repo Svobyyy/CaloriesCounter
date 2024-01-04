@@ -1,15 +1,15 @@
 import { View, Text } from "react-native";
 import Calendar from "../components/Calendar/Calendar";
 
-const BarCodeScreen = () => {
+const ProductsScreen = () => {
   return (
     <>
       <Calendar></Calendar>
       <View>
-        <Text>BarCode</Text>
+        <Text>CRUD operace</Text>
       </View>
     </>
   );
 };
 
-export default BarCodeScreen;
+export default ProductsScreen;

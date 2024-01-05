@@ -1,9 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
-import { View, StyleSheet, TextInput, Pressable } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import FindInput from "../FindInput/FindInput";
+import { AntDesign } from "@expo/vector-icons";
 
-const FindHeader = ({setLoading}: any) => {
+const FindHeader = ({ setLoading }: any) => {
   const navigation = useNavigation() as any;
 
   return (
@@ -15,10 +16,22 @@ const FindHeader = ({setLoading}: any) => {
         <Ionicons name="arrow-back-outline" size={28} color="black" />
       </Pressable>
 
-      <FindInput setLoading={setLoading}></FindInput>
+      <FindInput setLoading={setLoading} />
 
-      <Pressable style={styles.headerHeight} onPressIn={() => navigation.navigate('Barcode')}>
+      <Pressable
+        style={styles.headerHeight}
+        onPressIn={() => navigation.navigate("Barcode")}
+      >
         <Ionicons name="barcode-outline" size={28} color="black" />
+      </Pressable>
+
+      <Pressable
+        style={styles.headerHeight}
+        onPressIn={() =>
+          navigation.navigate("AddProduct", { navigation, route: null })
+        }
+      >
+        <AntDesign name="plus" size={24} color="black" />
       </Pressable>
     </View>
   );
@@ -31,7 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   headerHeight: {
     height: 50,

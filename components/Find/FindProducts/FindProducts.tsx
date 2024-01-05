@@ -8,7 +8,7 @@ import CaloriesCounter from "../../../utils/CaloriesCounter";
 const FindProduct = ({ protein, carbohydrates, fiber, fat, name }: Product) => {
   return (
     <View style={styles.product}>
-      <Text>{name}</Text>
+      <Text>{name.charAt(0).toUpperCase() + name.slice(1)}</Text>
       <View>
         <Text>{CaloriesCounter(protein, carbohydrates, fiber, fat)} kcal</Text>
         <Text>100g</Text>
@@ -34,7 +34,7 @@ const FindProducts = () => {
         </Pressable>
       )}
       keyExtractor={(item) => item["_id"]}
-    ></FlatList>
+    />
   );
 };
 

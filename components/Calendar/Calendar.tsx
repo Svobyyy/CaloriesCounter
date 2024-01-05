@@ -10,25 +10,21 @@ const Calendar = () => {
   const { date } = useSelector((state: RootState) => state.date);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  const setVisibility = () => {
-    return setModalVisible((visible) => !visible);
-  };
-
   return (
     <>
       <Pressable
         style={styles.calendar}
         onPressIn={() => {
-          setVisibility();
+          setModalVisible((visible) => !visible);
         }}
       >
         <Text style={styles.calendarText}>{`${
           days[date.day()]
         }, ${date.date()}.${date.month() + 1}`}</Text>
         <CalendarModal
-          visibility={modalVisible}
-          setVisibility={setVisibility}
-        ></CalendarModal>
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+        />
       </Pressable>
     </>
   );

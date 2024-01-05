@@ -13,7 +13,6 @@ const AddProduct = ({
   setQuantity,
   quantity,
 }: props) => {
-
   return (
     <View style={styles.wrap}>
       <View style={styles.background}>
@@ -42,7 +41,9 @@ const AddProduct = ({
           </View>
           <View style={[styles.info, styles.calories]}>
             <Text>Calories:</Text>
-            <Text>{CaloriesCounter(protein, carbohydrates, fiber, fat)} kcal</Text>
+            <Text>
+              {CaloriesCounter(protein, carbohydrates, fiber, fat)} kcal
+            </Text>
           </View>
         </View>
       </View>
@@ -58,7 +59,7 @@ const AddProduct = ({
             maxLength={6}
             cursorColor={"#05666C"}
             inputMode="numeric"
-          ></TextInput>
+          />
           <Text>g</Text>
         </View>
       </View>
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
   },
   infoMain: {
     paddingHorizontal: 5,
+    gap: 5
   },
   calories: {
     marginTop: 10,
@@ -91,6 +93,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#05666C",
     fontWeight: "500",
+    fontSize: 16,
     marginBottom: 5,
   },
   name: {

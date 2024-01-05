@@ -63,15 +63,17 @@ const productsSlice = createSlice({
             calories:
               state.nutrition.calories +
               CaloriesCounter(protein, carbohydrates, fiber, fat, quantity),
-            protein: Math.round( state.nutrition.protein + (protein / 100) * quantity),
-            carbohydrates: Math.round( state.nutrition.carbohydrates + (carbohydrates / 100) * quantity),
-            fiber: Math.round( state.nutrition.fiber + (fiber / 100) * quantity),
-            fat: Math.round( state.nutrition.fat + (fat / 100) * quantity)
+            protein: Math.round(
+              state.nutrition.protein + (protein / 100) * quantity
+            ),
+            carbohydrates: Math.round(
+              state.nutrition.carbohydrates + (carbohydrates / 100) * quantity
+            ),
+            fiber: Math.round(state.nutrition.fiber + (fiber / 100) * quantity),
+            fat: Math.round(state.nutrition.fat + (fat / 100) * quantity),
           };
         });
       });
-
-      console.log(state.nutrition);
     },
 
     updateProducts: (state) => {

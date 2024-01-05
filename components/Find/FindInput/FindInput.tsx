@@ -4,8 +4,11 @@ import { AntDesign } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 import { changeFind } from "../../../slices/findSlice";
 
-
-const fetchData = async (text: string, dispatch: Function, setLoading: Function) => {
+const fetchData = async (
+  text: string,
+  dispatch: Function,
+  setLoading: Function
+) => {
   try {
     const result = await fetch(
       `http://192.168.0.10:3005/products/${text.trim().toLowerCase()}`,
@@ -34,7 +37,6 @@ const FindInput = ({ setLoading }: any) => {
     }
     setLoading(true);
 
-
     const timer = setTimeout(() => {
       fetchData(text, dispatch, setLoading);
       setLoading(false);
@@ -54,12 +56,12 @@ const FindInput = ({ setLoading }: any) => {
         autoFocus={true}
         cursorColor={"#05666C"}
         inputMode="search"
-      ></TextInput>
+      />
       <Pressable
         style={styles.headerHeight}
         onPressIn={() => {
-          setText("")
-          dispatch(changeFind([]))
+          setText("");
+          dispatch(changeFind([]));
         }}
       >
         <AntDesign name="close" size={28} color="black" />

@@ -40,12 +40,13 @@ const DietProduct = ({
             update: true,
             when,
             _id,
+            delete: false,
           });
           dispatch(changeSection(when));
         }}
       >
         <View>
-          <Text>{name}</Text>
+          <Text>{name.charAt(0).toUpperCase() + name.slice(1)}</Text>
           <Text>{quantity} g</Text>
         </View>
       </Pressable>
@@ -67,7 +68,7 @@ const DietProduct = ({
           <InfoModal
             product={{ name, protein, carbohydrates, fat, fiber, quantity }}
             setInfo={setInfo}
-          ></InfoModal>
+          />
         )}
 
         <Pressable

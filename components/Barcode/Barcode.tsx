@@ -1,6 +1,6 @@
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { useState } from "react";
-import { Alert, StyleSheet, Button, Vibration } from "react-native";
+import { Alert, StyleSheet, Vibration } from "react-native";
 import FindByBarcode from "./FindByBarcode";
 import { useNavigation } from '@react-navigation/native';
 

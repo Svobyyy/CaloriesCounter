@@ -8,7 +8,6 @@ const Summary = () => {
     nutrition: { calories, protein, fiber, fat, carbohydrates },
   } = useSelector((state: any) => state.products);
 
-
   return (
     <ScrollView>
       <View style={styles.wrap}>
@@ -19,8 +18,8 @@ const Summary = () => {
             size={150}
             thickness={10}
             showsText={true}
-            progress={calories / (3000 / 100) / 100 }
-            color={ (calories / (3000 / 100) / 100) < 0.75 ? "orange" : "green" }
+            progress={calories / (3000 / 100) / 100}
+            color={calories / (3000 / 100) / 100 < 0.75 ? "orange" : "green"}
             unfilledColor={"rgba(5, 102, 108, 0.2)"}
             borderWidth={0}
             borderColor={"#05666C"}
@@ -38,7 +37,7 @@ const Summary = () => {
         countSecond={362}
         valueFirst={protein}
         valueSecond={carbohydrates}
-      ></SubSummary>
+      />
       <SubSummary
         nameFirst={"Fats"}
         countFirst={83.7}
@@ -46,7 +45,7 @@ const Summary = () => {
         countSecond={27.5}
         valueFirst={fat}
         valueSecond={fiber}
-      ></SubSummary>
+      />
     </ScrollView>
   );
 };

@@ -9,6 +9,7 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import sendToDatabase from "./sendToDatabase";
 import { updateProducts } from "../../slices/productsSlice";
+import DeleteProduct from "./DeleteProduct/DeleteProduct";
 
 const data = [
   { key: "1", value: "Breakfast" },
@@ -23,12 +24,18 @@ const AddToDate = ({ route, navigation }: any) => {
 
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState<string>("");
-
+  console.log();
   return (
     <>
-      <Calendar></Calendar>
-
+      <Calendar />
       <ScrollView style={styles.wrap}>
+        {route.params.delete !== false && (
+          <DeleteProduct
+            id={route.params.product["_id"]}
+            navigation={navigation}
+          />
+        )}
+
         <SelectList
           data={data}
           setSelected={(val: number) =>
@@ -36,6 +43,8 @@ const AddToDate = ({ route, navigation }: any) => {
           }
           search={false}
           placeholder={section}
+          inputStyles={{ fontSize: 16 }}
+          dropdownTextStyles={{ fontSize: 16 }}
           dropdownStyles={{
             position: "absolute",
             top: 40,
@@ -97,6 +106,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+
+    elevation: 4,
   },
   add: {
     backgroundColor: "#05666C",
@@ -105,6 +123,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
     borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+
+    elevation: 4,
   },
   buttons: {
     flexDirection: "row",

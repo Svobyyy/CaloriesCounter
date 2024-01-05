@@ -7,7 +7,10 @@ type props = {
   setInfo: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const InfoModal = ({ product: {name, protein,fat, carbohydrates, fiber, quantity}, setInfo }: props) => {
+const InfoModal = ({
+  product: { name, protein, fat, carbohydrates, fiber, quantity },
+  setInfo,
+}: props) => {
   return (
     <Modal
       animationType="fade"
@@ -20,7 +23,7 @@ const InfoModal = ({ product: {name, protein,fat, carbohydrates, fiber, quantity
           onPressIn={() => {
             setInfo((data) => !data);
           }}
-        ></Pressable>
+        />
 
         <View style={styles.main}>
           <Pressable
@@ -30,28 +33,37 @@ const InfoModal = ({ product: {name, protein,fat, carbohydrates, fiber, quantity
             }}
           >
             <Ionicons name="arrow-back-outline" size={28} color="black" />
-            <Text style={styles.title}>{name.charAt(0).toUpperCase() + name.slice(1)}</Text>
+            <Text style={styles.title}>
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </Text>
           </Pressable>
 
-         <View style={styles.infos}>
+          <View style={styles.infos}>
             <View style={styles.info}>
-                <Text style={styles.infoText}>Protein</Text>
-                <Text style={styles.infoText}>{Math.round(protein / 100 * quantity)} g</Text>
+              <Text style={styles.infoText}>Protein</Text>
+              <Text style={styles.infoText}>
+                {Math.round((protein / 100) * quantity)} g
+              </Text>
             </View>
             <View style={styles.info}>
-                <Text style={styles.infoText}>Carbs: </Text>
-                <Text style={styles.infoText}>{Math.round(carbohydrates / 100 * quantity)} g</Text>
+              <Text style={styles.infoText}>Carbs: </Text>
+              <Text style={styles.infoText}>
+                {Math.round((carbohydrates / 100) * quantity)} g
+              </Text>
             </View>
             <View style={styles.info}>
-                <Text style={styles.infoText}>Fat</Text>
-                <Text style={styles.infoText}>{Math.round(fat / 100 * quantity)} g</Text>
+              <Text style={styles.infoText}>Fat</Text>
+              <Text style={styles.infoText}>
+                {Math.round((fat / 100) * quantity)} g
+              </Text>
             </View>
             <View style={styles.info}>
-                <Text style={styles.infoText}>Fiber</Text>
-                <Text style={styles.infoText}>{Math.round(fiber / 100 * quantity)} g</Text>
+              <Text style={styles.infoText}>Fiber</Text>
+              <Text style={styles.infoText}>
+                {Math.round((fiber / 100) * quantity)} g
+              </Text>
             </View>
-         </View>
-
+          </View>
         </View>
       </View>
     </Modal>
@@ -82,7 +94,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: "#05666C",
-    fontWeight: "500"
+    fontWeight: "500",
   },
   background: {
     width: "100%",
@@ -95,16 +107,16 @@ const styles = StyleSheet.create({
   infos: {
     marginTop: 10,
     gap: 10,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   info: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   infoText: {
     color: "white",
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });
 
 export default InfoModal;

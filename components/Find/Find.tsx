@@ -16,13 +16,13 @@ const Find = ({ route }: any) => {
 
   return (
     <>
-      <FindHeader setLoading={setLoading}></FindHeader>
+      <FindHeader setLoading={setLoading} />
       {loading && (
         <View style={styles.center}>
           <ActivityIndicator size="large" color="#05666C" />
         </View>
       )}
-      {!loading && <FindProducts></FindProducts>}
+      {!loading && <FindProducts />}
     </>
   );
 };

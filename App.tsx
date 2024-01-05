@@ -7,16 +7,15 @@ import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
 import { store } from "./store/store";
 import Bar from "./components/StatusBar/Bar";
 import DietRoute from "./routes/DietRoute";
-import ProductsScreen from "./Screens/ProductsScreen";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <>
-      <Bar></Bar>
+      <Bar />
       <Provider store={store}>
-        <NavigationContainer>
+        <NavigationContainer >
           <Tab.Navigator
             initialRouteName="Diet"
             screenOptions={{
@@ -25,6 +24,7 @@ export default function App() {
               headerShown: false,
               tabBarStyle: { height: 65, flex: 0, padding: 5 },
               tabBarLabelStyle: { marginBottom: 10, fontSize: 12 },
+
             }}
           >
             <Tab.Screen
@@ -42,16 +42,6 @@ export default function App() {
               options={{
                 tabBarIcon: ({ color }) => (
                   <Ionicons name="fast-food" size={24} color={color} />
-                ),
-              }}
-            />
-
-            <Tab.Screen
-              name="Products"
-              component={ProductsScreen}
-              options={{
-                tabBarIcon: ({ color }) => (
-                  <FontAwesome name="search" size={24} color={color} />
                 ),
               }}
             />

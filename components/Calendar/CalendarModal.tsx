@@ -6,29 +6,28 @@ import dayjs from "dayjs";
 import { RootState } from "../../store/store";
 
 type props = {
-  visibility: boolean,
-  setVisibility: Function
+  modalVisible: boolean,
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CalendarModal = ({ visibility, setVisibility }: props) => {
+const CalendarModal = ({modalVisible , setModalVisible }: props) => {
   
 
   const dispatch = useDispatch()
   const { date } = useSelector((state: RootState) => state.date);
 
 
-
   return (
     <Modal
-      visible={visibility}
+      visible={modalVisible}
       animationType="fade"
-      onRequestClose={() => setVisibility()}
+      onRequestClose={() => setModalVisible((visible) => !visible)}
     >
       <DateTimePicker
         value={date}
         onValueChange={(date: any) => {
           dispatch(changeDate(dayjs(date))),
-          setVisibility()
+          setModalVisible((visible) => !visible)
         }}
         mode="date"
         selectedItemColor={"#05666C"}

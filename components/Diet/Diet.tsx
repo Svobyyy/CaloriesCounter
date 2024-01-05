@@ -18,20 +18,21 @@ const Diet = () => {
   const navigation = useNavigation() as any;
   const [loading, setLoading] = useState<Boolean>(true);
   const { date } = useSelector((state: RootState) => state.date);
-  const { products, updateRequired } = useSelector((state: RootState) => state.products);
+  const { products, updateRequired } = useSelector(
+    (state: RootState) => state.products
+  );
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setLoading(true);
-    getDateDatabase(date, dispatch ,setLoading);
+    getDateDatabase(date, dispatch, setLoading);
   }, [date, updateRequired]);
 
   return (
     <>
       {!loading && (
         <SectionList
-        
           sections={products as any}
           keyExtractor={(item, index) => item.name + index}
           renderItem={({ item, section: { title } }) => (
@@ -51,7 +52,7 @@ const Diet = () => {
               />
             </Pressable>
           )}
-        ></SectionList>
+        />
       )}
       {loading && (
         <View style={styles.loading}>

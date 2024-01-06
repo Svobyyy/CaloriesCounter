@@ -9,7 +9,7 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import sendToDatabase from "./sendToDatabase";
 import { updateProducts } from "../../slices/productsSlice";
-import DeleteProduct from "./OptionsProduct/Options";
+import Options from "./OptionsProduct/Options";
 
 const data = [
   { key: "1", value: "Breakfast" },
@@ -30,8 +30,8 @@ const AddToDate = ({ route, navigation }: any) => {
       <Calendar />
       <ScrollView style={styles.wrap}>
         {route.params.delete !== false && (
-          <DeleteProduct
-            id={route.params.product["_id"]}
+          <Options
+            product={route.params.product}
             navigation={navigation}
           />
         )}

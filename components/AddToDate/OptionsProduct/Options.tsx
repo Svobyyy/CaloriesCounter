@@ -2,8 +2,9 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 import { StyleSheet, Pressable, View, Text } from "react-native";
 import { useState } from "react";
 import DeleteProductDatabase from "./DeleteProductDatabase";
+import { Product } from "../../../slices/findSlice";
 
-const Options = ({ id, navigation }: { id: string; navigation: any }) => {
+const Options = ({ product, navigation }: { product: Product; navigation: any }) => {
   const [show, setShow] = useState(false);
 
   return (
@@ -21,7 +22,7 @@ const Options = ({ id, navigation }: { id: string; navigation: any }) => {
         <View style={styles.box}>
           <Pressable
             onPressIn={() => {
-              DeleteProductDatabase(id, navigation);
+              DeleteProductDatabase(product["_id"], navigation);
             }}
           >
             <Text style={styles.deleteText}>Delete</Text>
@@ -29,7 +30,10 @@ const Options = ({ id, navigation }: { id: string; navigation: any }) => {
 
           <Pressable
             onPressIn={() => {
-              navigation.navigate('AddProduct', {barcode: "", replace: true, id})
+              navigation.navigate("AddProduct", {
+                replace: true,
+                product
+              });
             }}
           >
             <Text style={styles.updateText}>Update</Text>

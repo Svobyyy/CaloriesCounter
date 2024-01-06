@@ -37,8 +37,21 @@ const AddToProducts = ({
     barcode: "",
   });
 
+  console.log(route.params);
+
   useEffect(() => {
-    changeProduct("barcode", route.params.barcode.toString());
+    if (route.params.product !== undefined) {
+      const { barcode, name, protein, fat, fiber, carbohydrates } =
+        route.params.product;
+
+      barcode !== undefined && changeProduct("barcode", barcode.toString());
+      name !== undefined && changeProduct("name", name);
+      protein !== undefined && changeProduct("protein", protein.toString());
+      fat !== undefined && changeProduct("fat", fat.toString());
+      fiber !== undefined && changeProduct("fiber", fiber.toString());
+      carbohydrates !== undefined &&
+        changeProduct("carbohydrates", carbohydrates.toString());
+    }
   }, []);
 
   const changeProduct = (change: string, value: string) => {
@@ -133,9 +146,13 @@ const AddToProducts = ({
           style={styles.add}
           onPressIn={() => {
             if (!route.params.replace) {
-             return AddProductDatabase(addProduct, navigation);
+              return AddProductDatabase(addProduct, navigation);
             }
-            return  ReplaceProductDatabase(addProduct, navigation, route.params.id);
+            return ReplaceProductDatabase(
+              addProduct,
+              navigation,
+              route.params.product._id
+            );
           }}
         >
           <Ionicons name="checkmark" size={28} color="#f2f2f2" />

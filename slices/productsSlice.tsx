@@ -58,7 +58,7 @@ const productsSlice = createSlice({
       state.products.forEach((section: any) => {
         section.data.forEach((data: any) => {
           const { carbohydrates, fat, protein, fiber, quantity } = data;
-          console.log(protein);
+
           state.nutrition = {
             calories:
               state.nutrition.calories +

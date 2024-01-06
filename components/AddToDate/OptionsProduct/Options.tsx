@@ -3,7 +3,7 @@ import { StyleSheet, Pressable, View, Text } from "react-native";
 import { useState } from "react";
 import DeleteProductDatabase from "./DeleteProductDatabase";
 
-const DeleteProduct = ({ id, navigation }: { id: string; navigation: any }) => {
+const Options = ({ id, navigation }: { id: string; navigation: any }) => {
   const [show, setShow] = useState(false);
 
   return (
@@ -18,15 +18,23 @@ const DeleteProduct = ({ id, navigation }: { id: string; navigation: any }) => {
       </Pressable>
 
       {show && (
-        <Pressable
-          style={styles.box}
-          onPressIn={() => {
-            DeleteProductDatabase(id, navigation);
-          }}
-        >
-          <Text style={styles.deleteText}>Delete</Text>
-          <Text style={styles.updateText}>Update</Text>
-        </Pressable>
+        <View style={styles.box}>
+          <Pressable
+            onPressIn={() => {
+              DeleteProductDatabase(id, navigation);
+            }}
+          >
+            <Text style={styles.deleteText}>Delete</Text>
+          </Pressable>
+
+          <Pressable
+            onPressIn={() => {
+              navigation.navigate('AddProduct', {barcode: "", replace: true, id})
+            }}
+          >
+            <Text style={styles.updateText}>Update</Text>
+          </Pressable>
+        </View>
       )}
     </View>
   );
@@ -66,10 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     color: "red",
-    flex: 1,
     width: 150,
     padding: 10,
-    textAlign: "center"
+    textAlign: "center",
   },
   updateText: {
     fontSize: 16,
@@ -77,8 +84,8 @@ const styles = StyleSheet.create({
     color: "green",
     width: 150,
     padding: 10,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
 
-export default DeleteProduct;
+export default Options;

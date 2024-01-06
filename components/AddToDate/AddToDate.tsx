@@ -9,7 +9,7 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import sendToDatabase from "./sendToDatabase";
 import { updateProducts } from "../../slices/productsSlice";
-import DeleteProduct from "./DeleteProduct/DeleteProduct";
+import DeleteProduct from "./OptionsProduct/Options";
 
 const data = [
   { key: "1", value: "Breakfast" },
@@ -24,7 +24,7 @@ const AddToDate = ({ route, navigation }: any) => {
 
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState<string>("");
-  console.log();
+
   return (
     <>
       <Calendar />

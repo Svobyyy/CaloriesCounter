@@ -28,7 +28,7 @@ const FindHeader = ({ setLoading }: any) => {
       <Pressable
         style={styles.headerHeight}
         onPressIn={() =>
-          navigation.navigate("AddProduct", { navigation, route: null })
+          navigation.navigate("AddProduct", {barcode: ""})
         }
       >
         <AntDesign name="plus" size={24} color="black" />

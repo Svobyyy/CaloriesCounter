@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import AddProductDatabase from "./AddProductDatabase";
 import AddProduct from "../AddToDate/AddProduct/AddProduct";
+import ReplaceProductDatabase from "./ReplaceProductDatabase";
 
 export type AddProduct = {
   name: string;
@@ -22,7 +23,7 @@ export type AddProduct = {
 
 const AddToProducts = ({
   navigation,
-  route = undefined,
+  route,
 }: {
   navigation: any;
   route: any;
@@ -37,14 +38,10 @@ const AddToProducts = ({
   });
 
   useEffect(() => {
-    console.log(route.params.barcode)
-    if (route.params.barcode !== undefined) {
-      
-      changeProduct("barcode", route.params.barcode.toString());
-    }
+    changeProduct("barcode", route.params.barcode.toString());
   }, []);
 
-  const changeProduct = (change: string, value: string | number) => {
+  const changeProduct = (change: string, value: string) => {
     setAddProduct((prevProduct) => ({ ...prevProduct, [change]: value }));
   };
 
@@ -109,7 +106,7 @@ const AddToProducts = ({
             cursorColor={"#05666C"}
             inputMode="numeric"
           />
-          
+
           <Text style={styles.title}>BarCode of a product</Text>
           <TextInput
             value={addProduct.barcode}
@@ -135,7 +132,10 @@ const AddToProducts = ({
         <Pressable
           style={styles.add}
           onPressIn={() => {
-            AddProductDatabase(addProduct, navigation);
+            if (!route.params.replace) {
+             return AddProductDatabase(addProduct, navigation);
+            }
+            return  ReplaceProductDatabase(addProduct, navigation, route.params.id);
           }}
         >
           <Ionicons name="checkmark" size={28} color="#f2f2f2" />

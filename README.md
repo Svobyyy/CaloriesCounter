@@ -21,19 +21,21 @@ npm start
 
 ## Technologies
 
-* React-Native
-* TypeScript
-* Redux-Toolkit
-* React-Navigation
+- **React-Native** 
+- **TypeScript** 
+- **Redux-Toolkit** 
+- **React-Navigation** 
 
 
 
 ## Key Features
 
+### Summary
+
 ### Calendar
 
-* Displays a day with a current date
-* Capable of changing Day, Month, Year
+* Displays a day with a current date.
+* Capable of changing a Day, Month and Year.
 
 ### Diet
 

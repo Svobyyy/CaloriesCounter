@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f2f2f2",
-    borderWidth: 1,
-    borderColor: "red",
+    borderWidth: 2,
+    borderColor: "#05666C",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
     width: 150,
     padding: 10,
     textAlign: "center",
+    borderBottomWidth: 2,
+    borderBottomColor: "#05666C"
   },
   updateText: {
     fontSize: 16,

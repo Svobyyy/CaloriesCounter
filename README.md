@@ -1,6 +1,6 @@
 # Mobile Calories Application
 
-Full Stack Mobile Application for counting Calories and Nutrition Facts, Backend of [Mobile Calories Application](https://www.google.com)
+Full Stack Mobile Application for counting Calories and Nutrition Facts, Backend -> [Mobile Calories Application](https://www.google.com)
 
 ## How to use 
 

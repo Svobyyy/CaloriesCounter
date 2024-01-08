@@ -17,7 +17,6 @@ npm install
 
 npm start
 ```
-### Example
 
 
 ## Technologies

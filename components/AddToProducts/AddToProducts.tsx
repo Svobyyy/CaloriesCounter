@@ -37,8 +37,6 @@ const AddToProducts = ({
     barcode: "",
   });
 
-  console.log(route.params);
-
   useEffect(() => {
     if (route.params.product !== undefined) {
       const { barcode, name, protein, fat, fiber, carbohydrates } =

@@ -1,20 +1,17 @@
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { useState } from "react";
-import {StyleSheet, Vibration } from "react-native";
+import { StyleSheet, Vibration } from "react-native";
 import FindByBarcode from "./FindByBarcode";
-import { useNavigation } from '@react-navigation/native';
-
-
+import { useNavigation } from "@react-navigation/native";
 
 const Barcode = () => {
   const [scanned, setScanned] = useState<boolean>(false);
-  const navigation = useNavigation()
-
+  const navigation = useNavigation();
 
   const handleBarCodeScanned = async ({ type, data }: any) => {
     setScanned(true);
-    FindByBarcode(parseInt(data), navigation)
-    Vibration.vibrate()
+    FindByBarcode(parseInt(data), navigation);
+    Vibration.vibrate();
   };
 
   return (
@@ -27,4 +24,4 @@ const Barcode = () => {
   );
 };
 
-export default Barcode
+export default Barcode;

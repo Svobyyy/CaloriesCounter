@@ -1,7 +1,7 @@
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { StyleSheet, Pressable, View, Text } from "react-native";
 import { useState } from "react";
-import DeleteProductDatabase from "./DeleteProductDatabase";
+import deleteProductDatabase from "./deleteProductDatabase";
 import { Product } from "../../../slices/findSlice";
 
 const Options = ({ product, navigation }: { product: Product; navigation: any }) => {
@@ -22,7 +22,7 @@ const Options = ({ product, navigation }: { product: Product; navigation: any })
         <View style={styles.box}>
           <Pressable
             onPressIn={() => {
-              DeleteProductDatabase(product["_id"], navigation);
+              deleteProductDatabase(product["_id"], navigation);
             }}
           >
             <Text style={styles.deleteText}>Delete</Text>

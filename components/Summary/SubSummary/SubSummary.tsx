@@ -2,15 +2,22 @@ import { StyleSheet, View, Text } from "react-native";
 import * as Progress from "react-native-progress";
 
 type Props = {
-    nameFirst: string,
-    countFirst: number,
-    nameSecond: string,
-    countSecond: number,
-    valueFirst: number,
-    valueSecond: number
-}
+  nameFirst: string;
+  countFirst: number;
+  nameSecond: string;
+  countSecond: number;
+  valueFirst: number;
+  valueSecond: number;
+};
 
-const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst, valueSecond} : Props) => {
+const SubSummary = ({
+  nameFirst,
+  countFirst,
+  nameSecond,
+  countSecond,
+  valueFirst,
+  valueSecond,
+}: Props) => {
   return (
     <View style={styles.wrap}>
       <View style={styles.caloriesBackground}>
@@ -20,7 +27,9 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst,
           thickness={7}
           showsText={true}
           progress={valueFirst / (countFirst / 100) / 100}
-          color={(valueFirst / (countFirst / 100) / 100) < 0.75 ? "orange" : "green" }
+          color={
+            valueFirst / (countFirst / 100) / 100 < 0.75 ? "orange" : "green"
+          }
           unfilledColor={"rgba(5, 102, 108, 0.2)"}
           borderWidth={0}
           borderColor={"#05666C"}
@@ -29,7 +38,9 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst,
 
         <View>
           <Text style={styles.mainText}>{nameFirst}</Text>
-          <Text style={styles.secondText}>{valueFirst}/{countFirst}</Text>
+          <Text style={styles.secondText}>
+            {valueFirst}/{countFirst}
+          </Text>
         </View>
       </View>
       <View style={styles.caloriesBackground}>
@@ -39,7 +50,9 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst,
           thickness={7}
           showsText={true}
           progress={valueSecond / (countSecond / 100) / 100}
-          color={(valueSecond / (countSecond / 100) / 100) < 0.75 ? "orange" : "green" }
+          color={
+            valueSecond / (countSecond / 100) / 100 < 0.75 ? "orange" : "green"
+          }
           unfilledColor={"rgba(5, 102, 108, 0.2)"}
           borderWidth={0}
           borderColor={"#05666C"}
@@ -48,7 +61,9 @@ const SubSummary = ({nameFirst, countFirst, nameSecond, countSecond, valueFirst,
 
         <View>
           <Text style={styles.mainText}>{nameSecond}</Text>
-          <Text style={styles.secondText}>{valueSecond}/{countSecond}</Text>
+          <Text style={styles.secondText}>
+            {valueSecond}/{countSecond}
+          </Text>
         </View>
       </View>
     </View>
@@ -74,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     borderRadius: 10,
-    gap: 8
+    gap: 8,
   },
   mainText: {
     color: "#05666C",

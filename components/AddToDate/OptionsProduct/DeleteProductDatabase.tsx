@@ -1,4 +1,4 @@
-const DeleteProductDatabase = async (id: string, navigation: any) => {
+const deleteProductDatabase = async (id: string, navigation: any) => {
   try {
     await fetch(`http://192.168.0.10:3005/product/${id}`, {
       method: "DELETE",
@@ -9,4 +9,4 @@ const DeleteProductDatabase = async (id: string, navigation: any) => {
   }
 };
 
-export default DeleteProductDatabase;
+export default deleteProductDatabase;

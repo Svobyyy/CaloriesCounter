@@ -10,11 +10,8 @@ const FindByBarcode = async (barcode: number, navigation: any) => {
     if (data !== null) {
       return navigation.navigate("AddToDate", { product: data });
     }
-    // add a product
-    return navigation.navigate("AddProduct", {product: {barcode}});
 
-
-
+    return navigation.navigate("AddProduct", { product: { barcode } });
   } catch (e) {
     console.log("error", e);
   }

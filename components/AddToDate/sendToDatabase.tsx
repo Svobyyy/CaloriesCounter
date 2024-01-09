@@ -1,6 +1,5 @@
 import { Product } from "../../slices/findSlice";
 
-
 const sendToDatabase = async (
   dispatch: any,
   updateDispatch: any,
@@ -11,13 +10,8 @@ const sendToDatabase = async (
   quantity: number,
   oldWhen?: string,
   _id?: string,
-  update?: boolean,
-
-
+  update?: boolean
 ) => {
-
-
-
   const { name, protein, fat, carbohydrates, fiber } = product;
   try {
     await fetch(`http://192.168.0.10:3005/date/${date}`, {
@@ -35,10 +29,10 @@ const sendToDatabase = async (
         quantity,
         update,
         oldWhen,
-        id: _id
+        id: _id,
       }),
     });
-    dispatch(updateDispatch)
+    dispatch(updateDispatch);
     navigation.navigate("DietRoute");
   } catch (e) {
     console.log("error", e);

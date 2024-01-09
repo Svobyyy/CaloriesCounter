@@ -64,6 +64,15 @@ npm start
 ### Find
 
 * Finds Products which includes an Input Value `"pr"`.
+* Find's Fetch Optimilazition
+  ```javascript
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+  ```
 * Clears Text of an Input Value `"pr"`.
 * If Product's Barcode exists, It displays the Product else send the barcode information to Add a Product `"8594205592214"`.
 * Adds a Product.

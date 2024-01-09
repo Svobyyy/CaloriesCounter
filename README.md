@@ -87,7 +87,7 @@ npm start
 ### Product
 
 * Updates a Product's information.
-* If it is Adding a Product, it has options icon with a Delete and Update, not like Updating from Diet .
+* If it is Adding a Product, it has option's icon with a Delete and Update, not like Updating from Diet .
 * Deletes a Product from Products collection.
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/cc30c682-0379-4147-90ed-854c0d8b732c" width="150">

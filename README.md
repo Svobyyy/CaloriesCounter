@@ -1,4 +1,4 @@
-# Calories and Nutrition Facts tracker 
+# Calories and Nutrition Facts Tracker 
 
 Full Stack Mobile Application for counting Calories and Nutrition Facts, Backend -> [Mobile Calories Application](https://github.com/Svobyyy/mobileBackEnd).
 

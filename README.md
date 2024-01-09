@@ -73,7 +73,7 @@ npm start
     return () => clearTimeout(timer);
   }, []);
   ```
-* Clears Text of an Input Value `"pr"`.
+* Clears a Text of an Input Value `"pr"`.
 * If Product's Barcode exists, It displays the Product else send the barcode information to Add a Product `"8594205592214"`.
 * Adds a Product.
 

@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   deleteText: {
     fontSize: 16,
     fontWeight: "500",
-    color: "red",
+    color: "#dc143c",
     width: 150,
     padding: 10,
     textAlign: "center",
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   updateText: {
     fontSize: 16,
     fontWeight: "500",
-    color: "green",
+    color: "#228b22",
     width: 150,
     padding: 10,
     textAlign: "center",

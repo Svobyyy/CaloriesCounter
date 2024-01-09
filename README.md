@@ -74,7 +74,7 @@ npm start
   }, []);
   ```
 * Clears a Text of an Input Value `"pr"`.
-* If Product's Barcode exists, It displays the Product else send the barcode information to Add a Product `"8594205592214"`.
+* If Product's Barcode exists, It displays the Product otherwis send the barcode information to Add a Product `"8594205592214"`.
 * Adds a Product.
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/81f18f33-aa88-416a-bbaa-7144179e43db" width="150">

@@ -1,6 +1,6 @@
-# Mobile Calories Application
+# Calories and Nutrition Facts tracker 
 
-Full Stack Mobile Application for counting Calories and Nutrition Facts, Backend -> [Mobile Calories Application](https://www.google.com)
+Full Stack Mobile Application for counting Calories and Nutrition Facts, Backend -> [Mobile Calories Application](https://www.google.com).
 
 ## How to use 
 
@@ -33,14 +33,14 @@ npm start
 ### Summary
 
 * Tracking Calories and Nutrition Facts.
-* Changes color depending on a percentage of a goal.
+* Changes Color depending on a percentage of a Goal.
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/9d0854d4-eb1f-451a-b8dc-4405da9f87b7" width="150">
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/5925e3da-3507-449a-a0bd-0b847012cd08" width="150">
 
 ### Calendar
 
-* Displays a day with a current date.
+* Displays a Day with a current Date.
 * Capable of changing a Day, Month and Year.
 
 
@@ -52,10 +52,10 @@ npm start
 
 ### Diet
 
-* Deleting a Product from a date
-* Displays Calories per Quantity
-* Getting information about a Product per Quantiy
-* Updating Product's Date, Quantity and Time [ Breakfast, Lunch, Dinner, Snacks ]
+* Deleting a Product from a Diet.
+* Displays Calories based on Quantity.
+* Obtaining information about a Product based on Quantity.
+* Updating Product's Date, Quantity and Time. [ Breakfast, Lunch, Dinner, Snacks ]
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/3a31cab2-5a6b-4807-a06c-de90b9d342ec" width="150">
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/552a6fab-9334-4f24-964b-097200562e36" width="150">
@@ -63,9 +63,10 @@ npm start
 
 ### Find
 
-* Find Products which includes an Input Value `"pr"`
-* Clearing Text of an Input Value `"pr"`
-* If a Product exists, display the Product else route the barcode information to Add a Product `"8594205592214"`
+* Find Products which includes an Input Value `"pr"`.
+* Clearing Text of an Input Value `"pr"`.
+* If Product's Barcode exists, display the Product else send the barcode information to Add a Product `"8594205592214"`.
+* Add a Product.
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/81f18f33-aa88-416a-bbaa-7144179e43db" width="150">
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/bfdd3419-ea65-4cfe-92dd-0399dbeb3263" width="150">
@@ -76,13 +77,13 @@ npm start
 
 ### Product
 
-### Add a Product
+* Update a Product's information.
+* If it is Adding a Product, it has options icon with a Delete and Update, not like Updating from Diet .
+* Delete a Product from Products collection.
 
-
-### Products
-
-  
-
-
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/cc30c682-0379-4147-90ed-854c0d8b732c" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/e74ee2cc-a0ab-45fb-8f66-ed24e4479a4d" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/71ab9d60-aa58-4d93-81bd-701c1fa24729" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/4ce9b292-a186-43ab-baca-0e81fe8f845c" width="150">
 
 

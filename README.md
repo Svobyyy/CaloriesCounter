@@ -52,9 +52,9 @@ npm start
 
 ### Diet
 
-* Deletes a Product from a Diet.
-* Displays Calories based on Quantity.
-* Obtains information about a Product based on Quantity.
+* Deletes a Product from Diet's collection.
+* Displays Calories based on a Quantity.
+* Obtains information about a Product based on a Quantity.
 * Updates Product's Date, Quantity and Time. [ Breakfast, Lunch, Dinner, Snacks ]
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/3a31cab2-5a6b-4807-a06c-de90b9d342ec" width="150">
@@ -88,7 +88,7 @@ npm start
 
 * Updates a Product's information.
 * If it is Adding a Product, it has option's icon with a Delete and Update, not like Updating from Diet .
-* Deletes a Product from Products collection.
+* Deletes a Product from Product's collection.
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/cc30c682-0379-4147-90ed-854c0d8b732c" width="150">
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/e74ee2cc-a0ab-45fb-8f66-ed24e4479a4d" width="150">

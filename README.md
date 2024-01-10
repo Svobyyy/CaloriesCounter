@@ -79,9 +79,10 @@ npm start
 
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/81f18f33-aa88-416a-bbaa-7144179e43db" width="150">
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/bfdd3419-ea65-4cfe-92dd-0399dbeb3263" width="150">
-  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/6d9c4338-02ee-493f-9ee3-3f231565c986" width="150">
-  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/3bc21ded-f8b4-4b9b-8110-872e0b861dee" width="150">
   <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/df29ae61-24d7-4e55-a034-8a52ad8ac82b" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/3bc21ded-f8b4-4b9b-8110-872e0b861dee" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/1dc29b19-373b-42bd-8428-e6a20727efd8" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/6d9c4338-02ee-493f-9ee3-3f231565c986" width="150">
 
 
 ### Product

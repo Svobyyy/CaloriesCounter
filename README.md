@@ -1,6 +1,6 @@
 # TrackIt
 
-Full Stack Mobile Application for tracking Calories and Nutrition Facts, Backend -> [Mobile Calories Application](https://github.com/Svobyyy/mobileBackEnd).
+Full Stack Mobile Application for tracking Calories and Nutrition Facts with Barcode reader, Backend -> [Mobile Calories Application](https://github.com/Svobyyy/mobileBackEnd).
 
 https://youtu.be/_ITC-0A5-lE?si=QQJqjckrvrD-pvgf
 

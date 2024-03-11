@@ -4,8 +4,10 @@ Full Stack Mobile Application for tracking Calories and Nutrition Facts with Bar
 
 https://youtu.be/_ITC-0A5-lE?si=QQJqjckrvrD-pvgf
 
-
 https://github.com/Svobyyy/TrackIt/assets/56925305/2b02eb63-ce20-47f1-9ff0-a3f83dc54c5a
+
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/df29ae61-24d7-4e55-a034-8a52ad8ac82b" width="150">
+  <img src="https://github.com/Svobyyy/CaloriesCounter/assets/56925305/1dc29b19-373b-42bd-8428-e6a20727efd8" width="150">
 
 
 

@@ -34,7 +34,8 @@ npm start
 - **React-Native** 
 - **TypeScript** 
 - **Redux-Toolkit** 
-- **React-Navigation** 
+- **React-Navigation**
+- **Expo**
 
 
 
